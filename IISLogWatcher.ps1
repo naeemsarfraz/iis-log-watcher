@@ -13,7 +13,7 @@ $ilw_site = Get-Item "IIS:\Sites\$webSiteName"
 $ilw_logdirectory = "{0}\w3svc{1}\*.log" -f $ilw_site.logfile.directory, $ilw_site.id
 $ilw_logdirectory = [System.Environment]::ExpandEnvironmentVariables($ilw_logdirectory)
 $ilw_lastLogFile = gci $ilw_logdirectory | sort LastWriteTime | select -last 1
-$ilw_lastLogFileContents = Get-Content $ilw_recentLogFile
+$ilw_lastLogFileContents = Get-Content $ilw_lastLogFile
 
 while (1)
 {
